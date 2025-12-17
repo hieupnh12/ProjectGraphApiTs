@@ -7,10 +7,13 @@ export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:8080/phoneShop',
-        changeOrigin: true
-      }
-    }
-  }
+      "/api": {
+        target: "http://localhost:8080/phoneShop",
+        changeOrigin: true,
+      },
+    },
+  },
+  optimizeDeps: {
+    include: ["@apollo/client"],
+  },
 });
